@@ -1,9 +1,30 @@
 [
   {
+    "objectID": "Research.html",
+    "href": "Research.html",
+    "title": "Seongdeok Oh",
+    "section": "",
+    "text": "title: “Research”\n---"
+  },
+  {
+    "objectID": "Assignments.html",
+    "href": "Assignments.html",
+    "title": "Seongdeok Oh",
+    "section": "",
+    "text": "title: “EPPS 6356 Data Visualization Assignments”\n---"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Seongdeok Oh",
     "section": "",
     "text": "More Information\nResearch Interests:\n\nPublic Management, Organizational Behavior and Theory in the Public Sector.\nPerformance Management in the Public Sector, Performance Information Use.\nCollaborative Public Management, Co-production, Citizen Participation.\nScience and Technology Policy Process, Policy Implementation and Evaluation.\n\n\n\nContact me\nSeongdeok.Oh@utdallas.edu\nWebsite"
+  },
+  {
+    "objectID": "Project.html",
+    "href": "Project.html",
+    "title": "Seongdeok Oh",
+    "section": "",
+    "text": "title: “Project”\n---\n\nUTD EPPS 6356 Data Visualization\n\n\nAssignment 1\n# Title Fall color\n# Credit: https://fronkonstin.com\n# Install packages\ninstall.packages(\"gsubfn\")\ninstall.packages(\"tidyverse\")\nlibrary(gsubfn)\nlibrary(tidyverse)\n# Define elements in plant art\n# Each image corresponds to a different axiom, rules, angle and depth\n# Leaf of Fall\naxiom=\"X\"\nrules=list(\"X\"=\"F-[[X]+X]+F[+FX]-X\", \"F\"=\"FF\")\nangle=22.5\ndepth=6\nfor (i in 1:depth) axiom=gsubfn(\".\", rules, axiom)\nactions=str_extract_all(axiom, \"\\\\d*\\\\+|\\\\d*\\\\-|F|L|R|\\\\[|\\\\]|\\\\|\") %>% unlist\nstatus=data.frame(x=numeric(0), y=numeric(0), alfa=numeric(0))\npoints=data.frame(x1 = 0, y1 = 0, x2 = NA, y2 = NA, alfa=90, depth=1)\n# Generating data\n# Note: may take a minute or two\nfor (action in actions)\n{\nif (action==\"F\")\n{\nx=points[1, \"x1\"]+cos(points[1, \"alfa\"]*(pi/180))\ny=points[1, \"y1\"]+sin(points[1, \"alfa\"]*(pi/180))\npoints[1,\"x2\"]=x\npoints[1,\"y2\"]=y\ndata.frame(x1 = x, y1 = y, x2 = NA, y2 = NA,\nalfa=points[1, \"alfa\"],\ndepth=points[1,\"depth\"]) %>% rbind(points)->points\n}\nif (action %in% c(\"+\", \"-\")){\nalfa=points[1, \"alfa\"]\npoints[1, \"alfa\"]=eval(parse(text=paste0(\"alfa\",action, angle)))\n}\nif(action==\"[\"){\ndata.frame(x=points[1, \"x1\"], y=points[1, \"y1\"], alfa=points[1, \"alfa\"]) %>%\nrbind(status) -> status\npoints[1, \"depth\"]=points[1, \"depth\"]+1\n}\nif(action==\"]\"){\ndepth=points[1, \"depth\"]\npoints[-1,]->points\ndata.frame(x1=status[1, \"x\"], y1=status[1, \"y\"], x2=NA, y2=NA,\nalfa=status[1, \"alfa\"],\ndepth=depth-1) %>%\nrbind(points) -> points\nstatus[-1,]->status\n}\n}\nggplot() +\ngeom_segment(aes(x = x1, y = y1, xend = x2, yend = y2),\nlineend = \"round\",\ncolor=\"blue\", # Set your own Fall color?\ndata=na.omit(points)) +\ncoord_fixed(ratio = 1) +\ntheme_void() # No grid nor axes"
   }
 ]
