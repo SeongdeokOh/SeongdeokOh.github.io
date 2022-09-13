@@ -10,7 +10,10 @@ As the link, you can check out 'Generative Art: 50 Best Examples, Tool & Artists
 
 #### 2) Run Fall.R
 
-```{r}
+
+::: {.cell}
+
+```{.r .cell-code}
 # Title Fall color
 # Credit: https://fronkonstin.com
 
@@ -19,13 +22,58 @@ As the link, you can check out 'Generative Art: 50 Best Examples, Tool & Artists
 library(gsubfn)
 ```
 
-```{r}
+::: {.cell-output .cell-output-stderr}
+```
+Loading required package: proto
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in doTryCatch(return(expr), name, parentenv, handler): unable to load shared object '/Library/Frameworks/R.framework/Resources/modules//R_X11.so':
+  dlopen(/Library/Frameworks/R.framework/Resources/modules//R_X11.so, 0x0006): Library not loaded: '/opt/X11/lib/libSM.6.dylib'
+  Referenced from: '/Library/Frameworks/R.framework/Versions/4.2/Resources/modules/R_X11.so'
+  Reason: tried: '/opt/X11/lib/libSM.6.dylib' (no such file), '/Library/Frameworks/R.framework/Resources/lib/libSM.6.dylib' (no such file), '/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/jre/lib/server/libSM.6.dylib' (no such file)
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+tcltk DLL is linked to '/opt/X11/lib/libX11.6.dylib'
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Could not load tcltk.  Will use slower R code instead.
+```
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 # install.packages("tidyverse")
 library(tidyverse)
-
 ```
 
-```{r}
+::: {.cell-output .cell-output-stderr}
+```
+── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+✔ tibble  3.1.8     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.1
+✔ readr   2.1.2     ✔ forcats 0.5.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+```
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
 # Define elements in plant art
 # Each image corresponds to a different axiom, rules, angle and depth
 
@@ -88,9 +136,13 @@ ggplot() +
                data=na.omit(points)) +
   coord_fixed(ratio = 1) +
   theme_void() # No grid nor axes
-
-
 ```
+
+::: {.cell-output-display}
+![](assignments_files/figure-html/unnamed-chunk-3-1.png){width=672}
+:::
+:::
+
 
 #### 3) Write a critique on a graphic in published work (book/article/news website)
 
@@ -119,3 +171,4 @@ The limitations of this study are as follows: First, it's a figure 1 that shows 
 **References**
 
 Kim, B., Cooks, E., & Kim, S.K. (2021, August 26). Exploring incivility and moral foundations toward Asians in English-speaking tweets in hate crime-reporting cities during the COVID-19 pandemic. *Internet Research*, *32*(1), 362--378.
+
