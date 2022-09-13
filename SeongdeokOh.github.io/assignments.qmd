@@ -16,9 +16,12 @@ As the link, you can check out 'Generative Art: 50 Best Examples, Tool & Artists
 
 # Install packages
 
-# install.packages("gsubfn")
-# install.packages("tidyverse")
+install.packages("gsubfn")
 library(gsubfn)
+```
+
+```{r}
+# install.packages("tidyverse")
 library(tidyverse)
 
 ```
