@@ -1,0 +1,105 @@
+# Assignment3
+
+### Seongdeok Oh
+
+## Compare the regression models
+
+```{r}
+## Data Visualization
+
+rm(list=ls())
+## Anscombe (1973) Quartlet
+
+data("anscombe") # load Anscombe's data
+
+# Create four model objects
+lm1 <- lm(y1 ~ x1, data=anscombe)
+lm2 <- lm(y2 ~ x2, data=anscombe)
+lm3 <- lm(y3 ~ x3, data=anscombe)
+lm4 <- lm(y4 ~ x4, data=anscombe)
+
+## Fancy version (per help file)
+
+ff <- y ~ x
+mods <- setNames(as.list(1:4), paste0("lm", 1:4))
+
+# Plot using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  ## or   ff[[2]] <- as.name(paste0("y", i))
+  ##      ff[[3]] <- as.name(paste0("x", i))
+  mods[[i]] <- lmi <- lm(ff, data = anscombe)
+  print(anova(lmi))
+}
+
+```
+
+```{r}
+sapply(mods, coef)  # Note the use of this function
+```
+
+```{r}
+lapply(mods, function(fm) coef(summary(fm)))
+```
+
+```{r}
+# Preparing for the plots
+op <- par(mfrow = c(2, 2), mar = 0.1+c(4,4,1,1), oma =  c(0, 0, 2, 0))
+
+# Plot charts using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  plot(ff, data = anscombe, col = "blue", pch = 21, bg = "blue", cex = 1.2,
+       xlim = c(3, 19), ylim = c(3, 13))
+  abline(mods[[i]], col = "red", lwd = 1.5)
+}
+mtext("Anscombe's 4 Regression data sets", outer = TRUE, cex = 1.5)
+
+par(op)
+```
+
+### Examples with overfitting finetune
+
+```{r}
+x <- seq(0, 2, by = 0.025)
+y <- 5 + 3*x^2 + 100*x^3 + rnorm(length(x), 0, 50)
+z <- x^2
+
+set.seed(2022)
+
+linearmodel <- lm(y ~ x) #model fitting
+
+testx <- seq(1.1, 1.5, by = 0.025)
+testy <- 5 + 3*testx^2 + 100*(testx)^3 + rnorm(length(testx), 0, 20)
+predict_linear <- predict(linearmodel, list(x= testx)) #prediction on test data set
+
+quadraticmodel <- lm(y~ x + z) #fitting
+predict_quadratic = predict(quadraticmodel, list(x = testx, z = testx^2)) #prediction on test data set
+
+smoothspline <- smooth.spline(x,y,df = 50) #fitting 
+predict_spline <- predict(smoothspline, testx)$y #prediction on test data set
+
+seq <- seq(min(x), max(x), by = 0.001)
+predict <- predict(quadraticmodel, list(x = seq, z = seq^2))
+
+par(mfrow=c(1,1))
+plot(x,y, xlab = "X", ylab = "Y", main = "Example of Overfitting with finetune" )
+abline(linearmodel, col = "red", lwd = 1)
+lines(seq,predict, col = "blue", lwd = 2)
+lines(smoothspline, col = "green", lwd = 2)
+```
+
+### Happy Planet Index with ggplot
+
+```{r}
+rm(list=ls())
+read.csv("Happy_Planet.csv", header = TRUE) 
+Happy_Planet <- read.csv("Happy_Planet.csv", header = TRUE)
+Happy_Planet <- na.omit(Happy_Planet)
+
+library(ggplot2)
+library(tidyverse)
+
+
+
+```

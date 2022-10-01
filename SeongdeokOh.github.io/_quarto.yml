@@ -13,6 +13,8 @@ website:
         text: Research
       - href: project.qmd
         text: Project
+      - href: https://seongdeokoh.github.io/Seongdeok.github.io/
+        text: Blog
       - text: Assignments
         menu: 
           - href: assignment1.qmd
@@ -21,6 +23,8 @@ website:
             text: assignment2
           - href: assignment3.qmd
             text: assignment3
+          - href: assignment4.qmd
+            text: assignment4
       - href: cv.pdf
         text: CV
 
