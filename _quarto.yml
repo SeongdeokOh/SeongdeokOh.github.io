@@ -25,12 +25,18 @@ website:
             text: assignment3
           - href: assignment4.qmd
             text: assignment4
+          - href: assignment5.qmd
+            text: assignment5
+          - href: assignment6.qmd
+            text: assignment6
+          - href: assignment7.qmd
+            text: assignment7
       - href: cv.pdf
         text: CV
 
 format:
   html:
-    theme: cosmo
+    theme: Flatly
     css: styles.css
     toc: true
 
