@@ -205,6 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
   <li><a href="#seongdeok-oh" id="toc-seongdeok-oh" class="nav-link" data-scroll-target="#seongdeok-oh">Seongdeok Oh</a></li>
+  <li><a href="#more-on-creating-charts" id="toc-more-on-creating-charts" class="nav-link" data-scroll-target="#more-on-creating-charts">1. More on creating charts</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -221,6 +222,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="seongdeok-oh" class="level3">
 <h3 class="anchored" data-anchor-id="seongdeok-oh">Seongdeok Oh</h3>
+</section>
+<section id="more-on-creating-charts" class="level3">
+<h3 class="anchored" data-anchor-id="more-on-creating-charts">1. More on creating charts</h3>
+<section id="a-bar-charts" class="level4">
+<h4 class="anchored" data-anchor-id="a-bar-charts">a) Bar charts</h4>
+<ul>
+<li><strong>Relationship of Gender and Race</strong></li>
+</ul>
+<p><img src="Bar%20Chart%201.png" class="img-fluid"></p>
+<ul>
+<li><strong>Relationship of Importance Same Race and Gender</strong></li>
+</ul>
+<p><img src="Bar%20Chart%202.png" class="img-fluid"></p>
+<ul>
+<li><strong>Relationship of Importance Same Religion and Gender</strong></li>
+</ul>
+<p><img src="Bar%20Chart%203.png" class="img-fluid"></p>
+</section>
+<section id="b-scatter-plots" class="level4">
+<h4 class="anchored" data-anchor-id="b-scatter-plots">b) Scatter plots</h4>
+<ul>
+<li><strong>Relationship of Age, Gender and Race</strong></li>
+</ul>
+<p><img src="Scatter%201.png" class="img-fluid"></p>
+<ul>
+<li><strong>Relationship of Importance Same Race, Gender, and Race</strong></li>
+</ul>
+<p><img src="Scatter%202.png" class="img-fluid"></p>
+<ul>
+<li><strong>Relationship of Importance Same Religion, Gender and Race</strong></li>
+</ul>
+<p><img src="Scatter%203.png" class="img-fluid"></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreign)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -278,9 +311,24 @@ dbl (64): has_null, wave, age, age_o, d_age, samerace, importance_same_race,...
 <div class="cell-output-display">
 <p><img src="assignment5_files/figure-html/unnamed-chunk-1-4.png" class="img-fluid" width="672"></p>
 </div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> speed_dating, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> importance_same_religion, <span class="at">col =</span> race)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 79 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="assignment5_files/figure-html/unnamed-chunk-1-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> speed_dating, <span class="fu">aes</span>(<span class="at">x =</span> importance_same_religion, <span class="at">fill =</span> gender)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 79 rows containing non-finite values (stat_count).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="assignment5_files/figure-html/unnamed-chunk-1-6.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 
 
+</section>
 </section>
 </section>
 
