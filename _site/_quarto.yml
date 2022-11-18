@@ -1,0 +1,44 @@
+project:
+  type: website
+
+website:
+  title: "Seongdeok Oh"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: research.qmd
+        text: Research
+      - href: project.qmd
+        text: Project
+      - href: https://seongdeokoh.github.io/Seongdeok.github.io/
+        text: Blog
+      - text: Assignments
+        menu: 
+          - href: assignment1.qmd
+            text: assignment1
+          - href: assignment2.qmd
+            text: assignment2
+          - href: assignment3.qmd
+            text: assignment3
+          - href: assignment4.qmd
+            text: assignment4
+          - href: assignment5.qmd
+            text: assignment5
+          - href: assignment6.qmd
+            text: assignment6
+          - href: assignment7.qmd
+            text: assignment7
+      - href: cv.pdf
+        text: CV
+
+format:
+  html:
+    theme: Flatly
+    css: styles.css
+    toc: true
+
+editor: visual
+
