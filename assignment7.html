@@ -15,69 +15,6 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -239,191 +176,144 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="seongdeok-oh">Seongdeok Oh</h3>
 <section id="build-a-shiny-app-that-can-display-at-least-three-of-the-charts." class="level5">
 <h5 class="anchored" data-anchor-id="build-a-shiny-app-that-can-display-at-least-three-of-the-charts.">1. Build a Shiny app that can display at least three of the charts.</h5>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-✔ tibble  3.1.8     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.1
-✔ readr   2.1.3     ✔ forcats 0.5.2
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'reshape2'
-
-The following object is masked from 'package:tidyr':
-
-    smiths</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_path <span class="ot">&lt;-</span><span class="st">"speed_dating_data.csv"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>spd_dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(data_path)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>spddat <span class="ot">&lt;-</span> <span class="fu">subset</span>(spd_dat, <span class="at">select=</span><span class="fu">c</span>(race, gender, age, pf_o_att, match, age_o,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                   attr, exercise, attr_o))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># data for Vikrant's pie chart</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>slices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">51</span>,<span class="dv">52</span>,<span class="dv">53</span>,<span class="dv">54</span>,<span class="dv">55</span>,<span class="dv">56</span>,<span class="dv">57</span>,<span class="dv">58</span>,<span class="dv">59</span>,<span class="dv">60</span>,<span class="dv">61</span>,<span class="dv">62</span>,<span class="dv">63</span>,<span class="dv">64</span>,<span class="dv">65</span>,<span class="dv">66</span>,<span class="dv">67</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>labels<span class="ot">=</span><span class="fu">c</span>(<span class="st">"Sports"</span>, <span class="st">"TV Sports"</span>,<span class="st">"Exercise"</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Dining"</span>, <span class="st">"Museums"</span>, <span class="st">"Art"</span>, <span class="st">"Hiking"</span>,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Gaming"</span>, <span class="st">"Clubbing"</span>,<span class="st">"Reading"</span>, <span class="st">"TV"</span>, <span class="st">"Theater"</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Movies"</span>, <span class="st">"Concert"</span>, <span class="st">"Music"</span>, <span class="st">"Shopping"</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Yoga"</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># data for Lizzie's line plot</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>match <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>race <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>))</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>data_lizzie <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(match,race)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>spddat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">race =</span> <span class="fu">recode</span>(race,</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>                                <span class="st">'1'</span> <span class="ot">=</span> <span class="st">"Black/African American"</span>,</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>                                <span class="st">'2'</span> <span class="ot">=</span> <span class="st">"European/Caucasian-American"</span>,</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>                                <span class="st">'3'</span> <span class="ot">=</span> <span class="st">"Latino/Hispanic American"</span>,</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>                                <span class="st">'4'</span> <span class="ot">=</span> <span class="st">"Asian/Pacific Islander/Asian-American"</span>,</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>                                <span class="st">'5'</span> <span class="ot">=</span> <span class="st">"Native American"</span>,</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>                                <span class="st">'6'</span> <span class="ot">=</span> <span class="st">"Other"</span>)) <span class="ot">-&gt;</span> spddat</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>spddat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">gender =</span> <span class="fu">recode</span>(gender,</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">'0'</span> <span class="ot">=</span> <span class="st">"Women"</span>,</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">'1'</span> <span class="ot">=</span> <span class="st">"Men"</span>)) <span class="ot">-&gt;</span> spddat</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>spddat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">match =</span> <span class="fu">recode</span>(match,</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">'0'</span> <span class="ot">=</span> <span class="st">"No Match"</span>,</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">'1'</span> <span class="ot">=</span> <span class="st">"Match"</span>)) <span class="ot">-&gt;</span> spddat</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>spddat <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(spddat)</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="co"># data for Vikrant's Bar Chart</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>spddat_match <span class="ot">&lt;-</span> <span class="fu">subset</span>(spddat, <span class="at">secect=</span><span class="fu">c</span>(match, gender, age_o))</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>spddat_match <span class="ot">&lt;-</span> spddat_match[spddat_match<span class="sc">$</span>match <span class="sc">==</span> <span class="st">"Match"</span>,] <span class="co"># get all those who matched</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="co"># data for Lizzie's heatmap</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>spddat_melt <span class="ot">=</span> <span class="fu">subset</span>(spddat, <span class="at">select=</span><span class="fu">c</span>(match, race, attr))</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>spddat_melt <span class="ot">=</span> <span class="fu">melt</span>(spddat_melt, <span class="at">value.name=</span><span class="st">"attr"</span>) <span class="co"># Reorder data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using match, race as id variables</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data for Namrta's Pie Chart</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>spddat_match2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(spddat, <span class="at">select=</span><span class="fu">c</span>(match, gender, race))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>spddat_match2 <span class="ot">&lt;-</span> spddat_match2[spddat_match2<span class="sc">$</span>match <span class="sc">==</span> <span class="st">"Match"</span>,] <span class="co"># get all those who matched</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI for app that draws a histogram ----</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># App title ----</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Assignment07: Hackathon 2.0"</span>),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sidebar layout with input and output definitions ----</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sidebar panel for inputs ----</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">radioButtons</span>(<span class="st">"type"</span>, <span class="fu">h4</span>(<span class="st">"Type of Plot"</span>),</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                   <span class="at">choices=</span><span class="fu">c</span>(<span class="st">"Bar Chart"</span>, <span class="st">"Scatter Plot"</span>, <span class="st">"Line Plot"</span>, <span class="st">"Pie Chart"</span>, <span class="st">"Heatmap"</span>)),</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="st">"plot"</span>, <span class="fu">h4</span>(<span class="st">"Plot"</span>), <span class="st">"N/A"</span>),</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">helpText</span>(<span class="fu">h4</span>(<span class="st">"Synergy Report:"</span>), <span class="st">"Team members put together code for </span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="st">               various plot types as shown by the dropdown selection labels.</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="st">               Eli placed the various plot codes into this Shiny app."</span>),</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">helpText</span>(<span class="st">"Team Members: Namrta Sharma, Eli Evans, Seongdeok Oh,</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="st">               Elisabeth Sanders, Vikrant Sagar Remoddula"</span>)</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Main panel for displaying outputs ----</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic required to draw a histogram ----</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observe</span>({</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">updateSelectInput</span>(session, <span class="st">"plot"</span>,</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>                      <span class="at">choices=</span><span class="cf">switch</span>(input<span class="sc">$</span>type,</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"Bar Chart"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Namrta's Bar Chart"</span>,</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>                                                     <span class="st">"Seongdeok's Bar Chart"</span>,</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>                                                     <span class="st">"Vikrant's Bar Chart"</span>),</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"Scatter Plot"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Namrta's Scatter Plot"</span>,</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>                                                        <span class="st">"Seongdeok's Scatter Plot"</span>,</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>                                                        <span class="st">"Vikrant's Scatter Plot"</span>,</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>                                                        <span class="st">"Lizzie's Bubble Plot"</span>),</span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"Line Plot"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Lizzie's Line Plot"</span>),</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"Pie Chart"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Namrta's Pie Chart"</span>,</span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>                                                     <span class="st">"Vikrant's Pie Chart"</span>),</span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"Heatmap"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Lizzie's Heatmap"</span>))</span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">switch</span>(input<span class="sc">$</span>plot,</span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Namrta's Bar Chart"</span> <span class="ot">=</span> <span class="fu">ggplot</span>(spddat, <span class="fu">aes</span>(<span class="at">x=</span>race, <span class="at">fill=</span>gender)) <span class="sc">+</span></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>             <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">"Race"</span>, <span class="at">y=</span><span class="st">"Number of Participants"</span>,</span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>                  <span class="at">title=</span><span class="st">"Racial Profile of Participants"</span>),</span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Namrta's Scatter Plot"</span> <span class="ot">=</span> <span class="fu">ggplot</span>(spddat, <span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y=</span>pf_o_att)) <span class="sc">+</span></span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"seagreen4"</span>) <span class="sc">+</span></span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>             <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Age"</span>, <span class="at">y=</span><span class="st">"Preference of Attractivenes"</span>, </span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>                  <span class="at">title=</span><span class="st">"Preference of Attractiveness by age"</span>, </span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour=</span>sample),</span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Namrta's Pie Chart"</span> <span class="ot">=</span> <span class="fu">ggplot</span>(spddat_match2, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y=</span>match, <span class="at">fill=</span>race, <span class="at">group=</span>race)) <span class="sc">+</span></span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span> </span>
-<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>             <span class="fu">facet_grid</span>(<span class="at">cols =</span> <span class="fu">vars</span>(gender)) <span class="sc">+</span></span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>             <span class="fu">coord_polar</span>(<span class="st">"y"</span>, <span class="at">start =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>             <span class="fu">theme_void</span>(),</span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Seongdeok's Bar Chart"</span> <span class="ot">=</span> <span class="fu">ggplot</span>(spddat, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">fill =</span> race)) <span class="sc">+</span> </span>
-<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>),</span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Seongdeok's Scatter Plot"</span> <span class="ot">=</span> <span class="fu">ggplot</span>(spddat, <span class="fu">aes</span>(<span class="at">x =</span> gender, </span>
-<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>                                                           <span class="at">y =</span> age, </span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>                                                           <span class="at">col =</span> race)) <span class="sc">+</span> </span>
-<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_point</span>(),</span>
-<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Lizzie's Line Plot"</span> <span class="ot">=</span> <span class="fu">ggplot</span>(data_lizzie, <span class="fu">aes</span>(<span class="at">x=</span>match, <span class="at">y=</span>race)) <span class="sc">+</span></span>
-<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_line</span>(<span class="at">color=</span><span class="st">"#69b3a2"</span>, <span class="at">size=</span><span class="dv">2</span>, </span>
-<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>                       <span class="at">alpha=</span><span class="fl">0.9</span>, <span class="at">linetype=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>             <span class="fu">ggtitle</span>(<span class="st">"Is attraction due to race?"</span>),</span>
-<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Vikrant's Pie Chart"</span> <span class="ot">=</span> <span class="fu">pie</span>(slices, <span class="at">labels =</span> labels, </span>
-<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">main=</span><span class="st">"Pie Chart of Commom Interests"</span>),</span>
-<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Vikrant's Scatter Plot"</span> <span class="ot">=</span> <span class="fu">ggplot</span>(spddat, <span class="fu">aes</span>(<span class="at">x =</span> match, </span>
-<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>                                                         <span class="at">y =</span> age_o, </span>
-<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>                                                         <span class="at">col =</span> gender)) <span class="sc">+</span> </span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_point</span>(),</span>
-<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Vikrant's Bar Chart"</span> <span class="ot">=</span> <span class="fu">ggplot</span>(spddat_match) <span class="sc">+</span></span>
-<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>age_o, <span class="at">fill=</span>gender, <span class="at">group=</span>gender), </span>
-<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>                      <span class="at">position=</span><span class="st">"dodge"</span>, <span class="at">color=</span><span class="st">"#252525"</span>) <span class="sc">+</span></span>
-<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>             <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>)) <span class="sc">+</span></span>
-<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>             <span class="fu">scale_fill_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>), </span>
-<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">type=</span><span class="fu">c</span>(<span class="st">"#a50f15"</span>, <span class="st">"#252525"</span>)) <span class="sc">+</span></span>
-<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>             <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Which Age-group got more success ?"</span>,</span>
-<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill =</span> <span class="st">"Gender"</span>) <span class="sc">+</span></span>
-<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>             <span class="fu">xlab</span>(<span class="st">"Age"</span>) <span class="sc">+</span></span>
-<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>             <span class="fu">ylab</span>(<span class="st">"Number of Candidates"</span>) <span class="sc">+</span></span>
-<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>             <span class="fu">theme_light</span>() <span class="sc">+</span></span>
-<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>             <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family=</span><span class="st">"Times New Roman"</span>)),</span>
-<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Lizzie's Heatmap"</span> <span class="ot">=</span> <span class="fu">ggplot</span>(spddat_melt, <span class="fu">aes</span>(match, race)) <span class="sc">+</span></span>
-<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> attr)),</span>
-<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Lizzie's Bubble Plot"</span> <span class="ot">=</span> <span class="fu">ggplot</span>(spddat, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> exercise, <span class="at">size=</span>attr_o)) <span class="sc">+</span></span>
-<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">'steelblue'</span>) <span class="sc">+</span></span>
-<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>             <span class="fu">scale_size</span>(<span class="at">range=</span><span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">0155</span>, <span class="dv">2</span>), <span class="at">name=</span><span class="st">'Attractiveness by Exercise'</span>)</span>
-<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
-
-Listening on http://127.0.0.1:6328</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="assignment7_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+</section>
+<section id="r-code" class="level5">
+<h5 class="anchored" data-anchor-id="r-code">2. R-code</h5>
+<p>library(shiny)</p>
+<p>library(tidyverse)</p>
+<p>library(reshape2)</p>
+<p>data_path &lt;-“speed_dating_data.csv”</p>
+<p>spd_dat &lt;- read.csv(data_path)</p>
+<p>spddat &lt;- subset(spd_dat, select=c(race, gender, age, pf_o_att, match, age_o,</p>
+<p>attr, exercise, attr_o))</p>
+<p># data for Vikrant’s pie chart</p>
+<p>slices &lt;- c(51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67)</p>
+<p>labels=c(“Sports”, “TV Sports”,“Exercise”,</p>
+<p>“Dining”, “Museums”, “Art”, “Hiking”,</p>
+<p>“Gaming”, “Clubbing”,“Reading”, “TV”, “Theater”,</p>
+<p>“Movies”, “Concert”, “Music”, “Shopping”,</p>
+<p>“Yoga”)</p>
+<p># data for Lizzie’s line plot</p>
+<p>match &lt;- 1:10</p>
+<p>race &lt;- cumsum(rnorm(10))</p>
+<p>data_lizzie &lt;- data.frame(match,race)</p>
+<p>spddat %&gt;% mutate(race = recode(race,</p>
+<p>‘1’ = “Black/African American”,</p>
+<p>‘2’ = “European/Caucasian-American”,</p>
+<p>‘3’ = “Latino/Hispanic American”,</p>
+<p>‘4’ = “Asian/Pacific Islander/Asian-American”,</p>
+<p>‘5’ = “Native American”,</p>
+<p>‘6’ = “Other”)) -&gt; spddat</p>
+<p>spddat %&gt;% mutate(gender = recode(gender,</p>
+<p>‘0’ = “Women”,</p>
+<p>‘1’ = “Men”)) -&gt; spddat</p>
+<p>spddat %&gt;% mutate(match = recode(match,</p>
+<p>‘0’ = “No Match”,</p>
+<p>‘1’ = “Match”)) -&gt; spddat</p>
+<p>spddat &lt;- na.omit(spddat)</p>
+<p># data for Vikrant’s Bar Chart</p>
+<p>spddat_match &lt;- subset(spddat, secect=c(match, gender, age_o))</p>
+<p>spddat_match &lt;- spddat_match[spddat_match$match == “Match”,] # get all those who matched</p>
+<p># data for Lizzie’s heatmap</p>
+<p>spddat_melt = subset(spddat, select=c(match, race, attr))</p>
+<p>spddat_melt = melt(spddat_melt, value.name=“attr”) # Reorder data</p>
+<p># data for Namrta’s Pie Chart</p>
+<p>spddat_match2 &lt;- subset(spddat, select=c(match, gender, race))</p>
+<p>spddat_match2 &lt;- spddat_match2[spddat_match2$match == “Match”,] # get all those who matched</p>
+<p># Define UI for app that draws a histogram ----</p>
+<p>ui &lt;- fluidPage(</p>
+<p># App title ----</p>
+<p>titlePanel(“Assignment07: Hackathon 2.0”),</p>
+<p># Sidebar layout with input and output definitions ----</p>
+<p>sidebarLayout(</p>
+<p># Sidebar panel for inputs ----</p>
+<p>sidebarPanel(</p>
+<p>radioButtons(“type”, h4(“Type of Plot”),</p>
+<p>choices=c(“Bar Chart”, “Scatter Plot”, “Line Plot”, “Pie Chart”, “Heatmap”)),</p>
+<p>selectInput(“plot”, h4(“Plot”), “N/A”),</p>
+<p>helpText(h4(“Synergy Report:”), “Team members put together code for</p>
+<p>various plot types as shown by the dropdown selection labels.</p>
+<p>Eli placed the various plot codes into this Shiny app.”),</p>
+<p>helpText(“Team Members: Namrta Sharma, Eli Evans, Seongdeok Oh,</p>
+<p>Elisabeth Sanders, Vikrant Sagar Remoddula”)</p>
+<p>),</p>
+<p># Main panel for displaying outputs ----</p>
+<p>mainPanel(</p>
+<p>plotOutput(“plot”)</p>
+<p>)</p>
+<p>)</p>
+<p>)</p>
+<p># Define server logic required to draw a histogram ----</p>
+<p>server &lt;- function(input, output, session) {</p>
+<p>observe({</p>
+<p>updateSelectInput(session, “plot”,</p>
+<p>choices=switch(input$type,</p>
+<p>“Bar Chart” = c(“Namrta’s Bar Chart”,</p>
+<p>“Seongdeok’s Bar Chart”,</p>
+<p>“Vikrant’s Bar Chart”),</p>
+<p>“Scatter Plot” = c(“Namrta’s Scatter Plot”,</p>
+<p>“Seongdeok’s Scatter Plot”,</p>
+<p>“Vikrant’s Scatter Plot”,</p>
+<p>“Lizzie’s Bubble Plot”),</p>
+<p>“Line Plot” = c(“Lizzie’s Line Plot”),</p>
+<p>“Pie Chart” = c(“Namrta’s Pie Chart”,</p>
+<p>“Vikrant’s Pie Chart”),</p>
+<p>“Heatmap” = c(“Lizzie’s Heatmap”))</p>
+<p>)</p>
+<p>})</p>
+<p>output$plot &lt;- renderPlot({</p>
+<p>switch(input$plot,</p>
+<p>“Namrta’s Bar Chart” = ggplot(spddat, aes(x=race, fill=gender)) +</p>
+<p>geom_bar() +</p>
+<p>labs(x= “Race”, y=“Number of Participants”,</p>
+<p>title=“Racial Profile of Participants”),</p>
+<p>“Namrta’s Scatter Plot” = ggplot(spddat, aes(x=age, y=pf_o_att)) +</p>
+<p>geom_point(color=“seagreen4”) +</p>
+<p>labs(x=“Age”, y=“Preference of Attractivenes”,</p>
+<p>title=“Preference of Attractiveness by age”,</p>
+<p>colour=sample),</p>
+<p>“Namrta’s Pie Chart” = ggplot(spddat_match2, aes(x = ““, y=match, fill=race, group=race)) +</p>
+<p>geom_bar(stat=“identity”) +</p>
+<p>facet_grid(cols = vars(gender)) +</p>
+<p>coord_polar(“y”, start = 0) +</p>
+<p>theme_void(),</p>
+<p>“Seongdeok’s Bar Chart” = ggplot(spddat, aes(x = gender, fill = race)) +</p>
+<p>geom_bar(position = “dodge”),</p>
+<p>“Seongdeok’s Scatter Plot” = ggplot(spddat, aes(x = gender,</p>
+<p>y = age,</p>
+<p>col = race)) +</p>
+<p>geom_point(),</p>
+<p>“Lizzie’s Line Plot” = ggplot(data_lizzie, aes(x=match, y=race)) +</p>
+<p>geom_line(color=“#69b3a2”, size=2,</p>
+<p>alpha=0.9, linetype=2) +</p>
+<p>ggtitle(“Is attraction due to race?”),</p>
+<p>“Vikrant’s Pie Chart” = pie(slices, labels = labels,</p>
+<p>main=“Pie Chart of Commom Interests”),</p>
+<p>“Vikrant’s Scatter Plot” = ggplot(spddat, aes(x = match,</p>
+<p>y = age_o,</p>
+<p>col = gender)) +</p>
+<p>geom_point(),</p>
+<p>“Vikrant’s Bar Chart” = ggplot(spddat_match) +</p>
+<p>geom_bar(aes(x=age_o, fill=gender, group=gender),</p>
+<p>position=“dodge”, color=“#252525”) +</p>
+<p>scale_x_continuous(breaks=c(18, 25, 30, 35, 40, 45)) +</p>
+<p>scale_fill_discrete(labels=c(“Female”, “Male”),</p>
+<p>type=c(“#a50f15”, “#252525”)) +</p>
+<p>labs(title = “Which Age-group got more success ?”,</p>
+<p>fill = “Gender”) +</p>
+<p>xlab(“Age”) +</p>
+<p>ylab(“Number of Candidates”) +</p>
+<p>theme_light() +</p>
+<p>theme(text = element_text(family=“Times New Roman”)),</p>
+<p>“Lizzie’s Heatmap” = ggplot(spddat_melt, aes(match, race)) +</p>
+<p>geom_tile(aes(fill = attr)),</p>
+<p>“Lizzie’s Bubble Plot” = ggplot(spddat, aes(x = age, y = exercise, size=attr_o)) +</p>
+<p>geom_point(alpha=0.5, color = ‘steelblue’) +</p>
+<p>scale_size(range=c(-.0155, 2), name=‘Attractiveness by Exercise’)</p>
+<p>)</p>
+<p>})</p>
+<p>}</p>
+<p>shinyApp(ui = ui, server = server)</p>
 
 
 </section>
