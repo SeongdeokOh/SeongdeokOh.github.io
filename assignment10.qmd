@@ -1,0 +1,72 @@
+## Assignment 10
+
+### Data Visualization
+
+### Seongdeok Oh
+
+##### 1. Write a review on visualization methods used in presentation
+
+A Review of Research Methods
+
+First, it is examined whether the data is changed or stopped at a designated point through basic time series intervention or inference in the change point model.
+
+As a result of the study, when looking at the changes made by the Mandatory Seatbelt Act, they confirmed that there was a change at a similar time in gasoline prices.
+
+Second, cost function analysis between fit and number of change points to rationalize change point addition.
+
+The study found that the Lasso regression analysis exaggerates the changes and runs them using the cost function. And it is explained that the multivariate version is easier to implement than other technologies. In addition, the Bayesian method must specify a full probability model.
+
+##### 2. Note the types of charts used and replicate the plots in R.
+
+1\) Line plot showing change in independent variable over time
+
+```{r}
+library(dygraphs)
+library(tidyverse)
+
+speed_dating <- read_csv("speed_dating_data.csv")
+head(speed_dating)
+```
+
+```{r}
+
+ggplot(speed_dating, aes(date, importance_same_race)) +
+  geom_line() + # create line plot
+  # customize look of plot and labels
+  labs(title = "Importance Same Race over Time") +
+  xlab("Date") +
+  ylab("Importance_same_race") +
+  theme_light() +
+  theme(text = element_text(family="Avenir"))
+
+
+
+```
+
+2\) Line plot showing change in independent variable over time with y-axis labels shown on both left and right
+
+```{r}
+ggplot(speed_dating, aes(date, importance_same_race)) +
+  geom_line() +
+  scale_y_continuous(sec.axis=sec_axis(trans=~.*1)) + # create second y axis
+  labs(title = "Importance Same Race over Time") +
+  xlab("Date") +
+  ylab("Importance Same Race over Time") +
+  theme_light() +
+  theme(text = element_text(family="Avenir"))
+```
+
+```{r}
+ggplot(speed_dating, aes(date, importance_same_race)) +
+  geom_line() +
+  # add lines at potential change points
+  geom_vline(xintercept=2002-11, color="red", linetype="dashed") +
+  geom_vline(xintercept=2003-04, color="red", linetype="dashed") +
+  geom_vline(xintercept=2004-02, color="red", linetype="dashed") +
+  labs(title = "Importance Same Race over Time") +
+  xlab("Date") +
+  ylab("Importance Same Race over Time") +
+  theme_light() +
+  theme(text = element_text(family="Avenir"))
+
+```
