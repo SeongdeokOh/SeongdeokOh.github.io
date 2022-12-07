@@ -15,7 +15,7 @@ website:
         text: Project
       - href: https://seongdeokoh.github.io/Seongdeok.github.io/
         text: Blog
-      - text: Assignments
+      - text: Assignments & Final Project
         menu: 
           - href: assignment1.qmd
             text: assignment1
@@ -31,6 +31,14 @@ website:
             text: assignment6
           - href: assignment7.qmd
             text: assignment7
+          - href: assignment8.qmd
+            text: assignment8
+          - href: assignment9.qmd
+            text: assignment9
+          - href: assignment10.qmd
+            text: assignment10
+          - href: finalProjectStoryboard.qmd
+            text: Final Team Project
       - href: cv.pdf
         text: CV
 
