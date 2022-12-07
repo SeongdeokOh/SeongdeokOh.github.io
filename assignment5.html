@@ -151,8 +151,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="https://seongdeokoh.github.io/Seongdeok.github.io/">Blog</a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="button" data-bs-toggle="dropdown" aria-expanded="false">Assignments</a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments">    
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments--final-project" role="button" data-bs-toggle="dropdown" aria-expanded="false">Assignments &amp; Final Project</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments--final-project">    
         <li>
     <a class="dropdown-item" href="./assignment1.html">
  <span class="dropdown-text">assignment1</span></a>
@@ -192,6 +192,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li>
     <a class="dropdown-item" href="./assignment10.html">
  <span class="dropdown-text">assignment10</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./finalProjectStoryboard.html">
+ <span class="dropdown-text">Final Team Project</span></a>
   </li>  
     </ul>
   </li>
@@ -287,13 +291,14 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>speed_dating <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"speed-dating.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 8378 Columns: 123</code></pre>
+<pre><code>Rows: 8378 Columns: 124</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
-chr (59): gender, d_d_age, race, race_o, d_importance_same_race, d_importanc...
-dbl (64): has_null, wave, age, age_o, d_age, samerace, importance_same_race,...
+chr  (59): gender, d_d_age, race, race_o, d_importance_same_race, d_importan...
+dbl  (64): has_null, wave, age, age_o, d_age, samerace, importance_same_race...
+date  (1): date
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
@@ -304,35 +309,35 @@ dbl (64): has_null, wave, age, age_o, d_age, samerace, importance_same_race,...
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> speed_dating, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> age, <span class="at">col =</span> race)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 95 rows containing missing values (geom_point).</code></pre>
+<pre><code>Warning: Removed 95 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="assignment5_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> speed_dating, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> importance_same_race, <span class="at">col =</span> race)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 79 rows containing missing values (geom_point).</code></pre>
+<pre><code>Warning: Removed 79 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="assignment5_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> speed_dating, <span class="fu">aes</span>(<span class="at">x =</span> importance_same_race, <span class="at">fill =</span> gender)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 79 rows containing non-finite values (stat_count).</code></pre>
+<pre><code>Warning: Removed 79 rows containing non-finite values (`stat_count()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="assignment5_files/figure-html/unnamed-chunk-1-4.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> speed_dating, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> importance_same_religion, <span class="at">col =</span> race)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 79 rows containing missing values (geom_point).</code></pre>
+<pre><code>Warning: Removed 79 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="assignment5_files/figure-html/unnamed-chunk-1-5.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> speed_dating, <span class="fu">aes</span>(<span class="at">x =</span> importance_same_religion, <span class="at">fill =</span> gender)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 79 rows containing non-finite values (stat_count).</code></pre>
+<pre><code>Warning: Removed 79 rows containing non-finite values (`stat_count()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="assignment5_files/figure-html/unnamed-chunk-1-6.png" class="img-fluid" width="672"></p>
