@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -64,80 +69,39 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="./index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Seongdeok Oh</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">Home</a>
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page">About</a>
+    <a class="nav-link active" href="./about.html" aria-current="page">
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html">Research</a>
+    <a class="nav-link" href="./research.html">
+ <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project.html">Project</a>
+    <a class="nav-link" href="./project.html">
+ <span class="menu-text">Project</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://seongdeokoh.github.io/Seongdeok.github.io/">Blog</a>
+    <a class="nav-link" href="./teaching.html">
+ <span class="menu-text">Teaching</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments--final-project" role="button" data-bs-toggle="dropdown" aria-expanded="false">Assignments &amp; Final Project</a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments--final-project">    
-        <li>
-    <a class="dropdown-item" href="./assignment1.html">
- <span class="dropdown-text">assignment1</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment2.html">
- <span class="dropdown-text">assignment2</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment3.html">
- <span class="dropdown-text">assignment3</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment4.html">
- <span class="dropdown-text">assignment4</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment5.html">
- <span class="dropdown-text">assignment5</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment6.html">
- <span class="dropdown-text">assignment6</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment7.html">
- <span class="dropdown-text">assignment7</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment8.html">
- <span class="dropdown-text">assignment8</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment9.html">
- <span class="dropdown-text">assignment9</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assignment10.html">
- <span class="dropdown-text">assignment10</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./finalProjectStoryboard.html">
- <span class="dropdown-text">Final Team Project</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./cv.pdf">CV</a>
+    <a class="nav-link" href="./cv.pdf">
+ <span class="menu-text">CV</span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -150,13 +114,12 @@ ul.task-list{list-style: none;}
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#education" id="toc-education" class="nav-link active" data-scroll-target="#education"><strong>Education</strong></a></li>
   <li><a href="#professional-experience" id="toc-professional-experience" class="nav-link" data-scroll-target="#professional-experience"><strong>Professional Experience</strong></a></li>
-  <li><a href="#teaching-academic-experience" id="toc-teaching-academic-experience" class="nav-link" data-scroll-target="#teaching-academic-experience"><strong>Teaching &amp; Academic Experience</strong></a></li>
   <li><a href="#honors-awards" id="toc-honors-awards" class="nav-link" data-scroll-target="#honors-awards"><strong>Honors &amp; Awards</strong></a></li>
   </ul>
 </nav>
@@ -170,7 +133,9 @@ ul.task-list{list-style: none;}
 <h2 class="anchored" data-anchor-id="education"><strong>Education</strong></h2>
 <section id="ph.d.-in-public-affairs" class="level4">
 <h4 class="anchored" data-anchor-id="ph.d.-in-public-affairs"><strong>Ph.D.&nbsp;in Public Affairs</strong></h4>
-<p>The University of Texas at Dallas, USA (Aug.&nbsp;2021 ~)</p>
+<p>The University of Texas at Dallas, USA (Aug.&nbsp;2021 ~ Present)</p>
+<p>Korea Univeristy, Republic of Korea (Aug.&nbsp;2021 ~ Aug.&nbsp;2018)</p>
+<p><em>(Graduate coursework required for Ph.D.&nbsp;in Public Policy)</em></p>
 </section>
 <section id="master-of-public-policy" class="level4">
 <h4 class="anchored" data-anchor-id="master-of-public-policy"><strong>Master of Public Policy</strong></h4>
@@ -188,22 +153,6 @@ ul.task-list{list-style: none;}
 <p><strong>Research Assistant</strong> (Sep.~Oct.2018), Korea Institute of Public Administration (KIPA), Seoul, Republic of Korea (Advisor: Director Min-ho Lee)</p>
 <p><strong>Researcher</strong> (May~Dec.2016), Public Policy Research Institute, Center for Public Audit Studies, Korea University, Republic of Korea, (Academic Advisor: Prof.&nbsp;Kwang-ho Sim)</p>
 <p><strong>Researcher</strong> (Jan.2015~Mar.2016), Korea Institute of Science &amp; Technology Evaluation and Planning (KISTEP), Seoul, Republic of Korea, (Advisor: Director Juho Kim)</p>
-</section>
-<section id="teaching-academic-experience" class="level2">
-<h2 class="anchored" data-anchor-id="teaching-academic-experience"><strong>Teaching &amp; Academic Experience</strong></h2>
-<section id="instructor-aug.2022-present" class="level4">
-<h4 class="anchored" data-anchor-id="instructor-aug.2022-present"><strong>Instructor (Aug.2022 ~ Present)</strong></h4>
-<p>PA 3380 Organizational Theory and Behavior (Spring 2023 expected), Public and Nonprofit Management, The University of Texas at Dallas.</p>
-<p>EPPS 2302 Methods of Quantitative Analysis in the Social and Policy Sciences (Fall 2022), School of Economic, Political &amp; Policy Sciences, The University of Texas at Dallas.</p>
-</section>
-<section id="graduate-teaching-assistant-aug.2021-aug.2022" class="level4">
-<h4 class="anchored" data-anchor-id="graduate-teaching-assistant-aug.2021-aug.2022"><strong>Graduate Teaching Assistant (Aug.2021 ~ Aug.2022)</strong></h4>
-<p>PA 6389 Volunteer Management (Spring 2022) Department of Public and Nonprofit Management, The University of Texas at Dallas.</p>
-<p>PA 6320 Organizational Theory (Fall 2021), Public and Nonprofit Management, The University of Texas at Dallas.</p>
-<p><strong>Research Assistant (2016~2018)</strong>, Department of Public Administration, Korea University</p>
-<p><strong>Teaching Assistant (2013)</strong>, Department of Public Policy, Korea University</p>
-<p><strong>Research Assistant (2012)</strong>, Department of Public Policy, Korea University</p>
-</section>
 </section>
 <section id="honors-awards" class="level2">
 <h2 class="anchored" data-anchor-id="honors-awards"><strong>Honors &amp; Awards</strong></h2>
@@ -259,7 +208,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -287,31 +253,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
